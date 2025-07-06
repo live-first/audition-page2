@@ -16,16 +16,21 @@ type ToggleButtonCommon = {
   className?: string
 }
 
-export type ToggleButtonProps = {
+type TabHeader = {
+  children?: ReactNode
+  className?: string
+}
+
+export type TabButtonProps = {
   Header?: typeof Header
   Content?: typeof Content
-  headers?: ReactNode[]
+  headers?: TabHeader[]
   contents?: ReactNode[]
   current?: string
   onChange?: () => void
 }
 
-const ToggleButton = (props: ToggleButtonProps) => {
+const ToggleButton = (props: TabButtonProps) => {
   const { headers, contents, current } = props
   const [tab, setTab] = useState<string>(current ?? '0')
 
@@ -40,6 +45,7 @@ const ToggleButton = (props: ToggleButtonProps) => {
                 `${index}` === tab && `active-${index}`,
                 `wd-${headers.length}`,
                 index + 1 !== headers.length && 'border-r-gray-400',
+                header.className,
               )}
               id={`${index}`}
               onClick={(e) => {
@@ -47,7 +53,7 @@ const ToggleButton = (props: ToggleButtonProps) => {
               }}
               key={index}
             >
-              {header}
+              {header.children}
             </button>
           )
         })}

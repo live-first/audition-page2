@@ -13,22 +13,22 @@
 }
 
 .button-Primary {
-  background-color: #3048ff;
+  background-color: var(--color-primary);
 }
 .button-Primary:hover {
-  background-color: #697bff;
+  opacity: 0.8;
 }
 .button-Secondary {
-  background-color: #16c9ff;
+  background-color: var(--color-secondary);
 }
 .button-Secondary:hover {
-  background-color: #62daff;
+  opacity: 0.8;
 }
 .button-Tertiary {
-  background-color: #8a8a8a;
+  background-color: var(--color-tertiary);
 }
 .button-Tertiary:hover {
-  background-color: #b9b9b9;
+  opacity: 0.8;
 }
 .button:disabled {
   cursor: not-allowed !important;

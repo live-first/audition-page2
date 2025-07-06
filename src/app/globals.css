@@ -3,6 +3,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --default: #054ee1;
+  --primary: #112dfe;
+  --secondary: #16c9ff;
+  --tertiary: #ff7f2a;
+  --disable: #9a9a9a;
 }
 
 @theme inline {
@@ -10,6 +15,11 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-default: var(--default);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  --color-disable: var(--disable);
   --color-error: #ff0000;
   --color-attention: #ffb217;
   --color-warning: #f6ff00;

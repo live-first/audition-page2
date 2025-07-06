@@ -1,4 +1,5 @@
 import { cn } from '../utils'
+import './style.css'
 
 type TextFieldProps = {
   id: string
@@ -6,11 +7,20 @@ type TextFieldProps = {
   required?: boolean
   size?: 'sm' | 'md' | 'lg' | 'xl'
   error?: string
+  disabled?: boolean
   className?: string
 }
 
 export const TextField = (props: TextFieldProps) => {
-  const { id, placeholder, required = false, size = 'md', error, className } = props
+  const {
+    id,
+    placeholder,
+    required = false,
+    size = 'md',
+    error,
+    disabled = false,
+    className,
+  } = props
 
   return (
     <input
@@ -18,7 +28,8 @@ export const TextField = (props: TextFieldProps) => {
       placeholder={placeholder}
       required={required}
       id={id}
-      className={cn(`input-text-${size}`, error && 'error', className)}
+      disabled={disabled}
+      className={cn(`input-text-${size}`, error && 'error', 'p-2 rounded-md', className)}
     />
   )
 }
