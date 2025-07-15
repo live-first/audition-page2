@@ -9,12 +9,17 @@ import { IoMdCheckmark, IoMdArrowRoundDown } from 'react-icons/io'
 import { PropsWithChildren } from 'react'
 import SlideUpAnimation from '@/lf-components/animation/slideUpAnimation'
 import { Marker } from '@/lf-components/Marker'
+import './style.css'
 
 export const HomeView = () => {
   return (
     <div>
-      <Container maxWidth='sm'>
-        <div className='flex flex-col gap-4 px-4 pb-12 bg-[#229fff6f]'>
+      <Container maxWidth='md' style={{ padding: 0 }}>
+        <div className='flex flex-col gap-4 px-4 py-12 bg-[#229fff6f]'>
+          <Theme />
+          <SlideUpAnimation>
+            <Title />
+          </SlideUpAnimation>
           <EntryLine />
           <div className='flex flex-col gap-6 py-4'>
             <SlideUpAnimation>
@@ -42,6 +47,37 @@ export const HomeView = () => {
   )
 }
 
+const Theme = () => {
+  return (
+    <div className='flex justify-between py-4'>
+      <div className='flex flex-col whitespace-nowrap gap-1 py-6 mt-6 md:mt-12 text-xl md:text-3xl'>
+        <div className='bg-amber-200'>大きいステージを目指して</div>
+        <div className='bg-amber-200'>みんなで成長できる</div>
+        <div className='bg-amber-200'>アイドルになりたい!!</div>
+      </div>
+      <SlideUpAnimation className='flex'>
+        <div
+          className='vertical-text text-decoration text-5xl md:text-[12rem] justify-end w-full'
+        >
+          メンバー
+          <br />
+          募集中！
+        </div>
+      </SlideUpAnimation>
+    </div>
+  )
+}
+
+const Title = () => {
+  return (
+    <div className='text-decoration text-center text-2xl md:text-5xl font-bold'>
+      新規アイドルグループ
+      <br />
+      メンバーオーディション
+    </div>
+  )
+}
+
 const EntryLine = () => {
   const OnLine = () => {
     window.open('https://lin.ee/YmMmBif', '_blank')
@@ -52,7 +88,7 @@ const EntryLine = () => {
       <div className='text-default text-center font-bold'>▼エントリー、ご質問などはこちらから▼</div>
       <div className='flex justify-center'>
         <EllipseButton
-          className='border-2 border-[#bfffd3] bg-[#00cc41] font-bold text-2xl shadow-2xl text-white w-2/3'
+          className='border-2 border-[#bfffd3] bg-[#00cc41] font-bold text-2xl items-center shadow-2xl text-white w-2/3'
           onClick={OnLine}
         >
           公式ライン
@@ -89,7 +125,10 @@ const AuditionOutline = () => {
       <div className='flex flex-col gap-6'>
         <Heading tag={4} label='募集内容' />
         <Section label='🎵グループについて'>
-          <div><Marker theme='blue'>王道 × 清楚系</Marker>のアイドルグループです。ライブは月15本程度予定しています。</div>
+          <div>
+            <Marker theme='blue'>王道 × 清楚系</Marker>
+            のアイドルグループです。ライブは月15本程度予定しています。
+          </div>
           <div></div>
           <div>
             本気でアイドルとして<Marker theme='yellow'>上を目指したい</Marker>
@@ -188,8 +227,16 @@ const Music = () => {
       <div className='flex flex-col gap-6'>
         <Heading tag={4} label='楽曲紹介' />
         <div className='flex flex-col gap-4 items-center'>
-          <audio src='https://audition.live-first.info/static/music/Destiny.wav' controls></audio>
-          <audio src='https://audition.live-first.info/static/music/Ryoomoi.wav' controls></audio>
+          <audio
+            src='https://audition.live-first.info/static/music/distiny_sample.mp3'
+            controls
+            controlsList='nodownload'
+          ></audio>
+          <audio
+            src='https://audition.live-first.info/static/music/ryoomoi_sample.mp3'
+            controls
+            controlsList='nodownload'
+          ></audio>
         </div>
       </div>
     </Panel>

@@ -56,7 +56,6 @@ export const FullModal = (props: PropsWithChildren<ModalProps>) => {
             </div>
           }
           main={<Main />}
-          topless
         />
       </div>
     </div>

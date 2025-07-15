@@ -1,4 +1,4 @@
-const Tag = {
+export const Tag = {
   seiso: '清楚',
 } as const
 

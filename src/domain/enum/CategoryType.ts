@@ -1,4 +1,4 @@
-const Category = {
+export const Category = {
   seiso: '清楚',
   rock: 'ロック',
 } as const
