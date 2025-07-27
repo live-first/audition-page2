@@ -56,9 +56,7 @@ const Theme = () => {
         <div className='bg-amber-200'>アイドルになりたい!!</div>
       </div>
       <SlideUpAnimation className='flex'>
-        <div
-          className='vertical-text text-decoration text-5xl md:text-[12rem] justify-end w-full'
-        >
+        <div className='vertical-text text-decoration text-5xl md:text-[12rem] justify-end w-full'>
           メンバー
           <br />
           募集中！
@@ -137,6 +135,16 @@ const AuditionOutline = () => {
           <div>
             そんなメンバーが<Marker theme='yellow'>「成長」</Marker>
             できるようにサポートしていきたいと思っています。
+          </div>
+        </Section>
+        <Section label='🎵プロデューサーについて'>
+          <div>
+            <Marker theme='yellow'>関ケ原唄姫合戦</Marker>や
+            <Marker theme='yellow'>クロフェス</Marker>
+            の制作に携わっており、本年は「関ケ原アプリ」の提案などを通してイベントの企画から行っています。
+          </div>
+          <div>
+            ライブを通して、楽しさと感動を届けられるグループにしていきたいと思っています。また、メンバーにとっての成長環境を作っていけたらと思っています。
           </div>
         </Section>
         <Section label='🎵運営の特徴'>
