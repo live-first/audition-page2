@@ -10,6 +10,11 @@ import { PropsWithChildren } from 'react'
 import SlideUpAnimation from '@/lf-components/animation/slideUpAnimation'
 import { Marker } from '@/lf-components/Marker'
 import './style.css'
+import { Image } from '@/lf-components/Image'
+import costume from '../../image/costume.jpeg'
+import xLogo from '../../image/x-logo.png'
+import instaLogo from '../../image/Instagram-logo.png'
+import Link from 'next/link'
 
 export const HomeView = () => {
   return (
@@ -33,6 +38,9 @@ export const HomeView = () => {
             </SlideUpAnimation>
             <SlideUpAnimation>
               <Schedule />
+            </SlideUpAnimation>
+            <SlideUpAnimation>
+              <Costume />
             </SlideUpAnimation>
             <SlideUpAnimation>
               <Music />
@@ -101,8 +109,7 @@ const DeadLine = () => {
     <Panel size='xl'>
       <Heading tag={4} label='募集締切' />
       <div className='flex flex-col justify-center gap-2'>
-        <EmphasisSlash>2025 / 8 / 31（日）</EmphasisSlash>
-        <div className='text-sm text-center'>※早めに締め切る可能性もあります</div>
+        <EmphasisSlash>2025 / 10 / 31（金）</EmphasisSlash>
       </div>
     </Panel>
   )
@@ -136,6 +143,7 @@ const AuditionOutline = () => {
             そんなメンバーが<Marker theme='yellow'>「成長」</Marker>
             できるようにサポートしていきたいと思っています。
           </div>
+          <div>12月下旬〜2026年1月デビュー予定です。</div>
         </Section>
         <Section label='🎵プロデューサーについて'>
           <div>
@@ -173,7 +181,7 @@ const Eligibility = () => {
         <div>
           <div className='flex'>
             <IoMdCheckmark style={{ transform: 'translateY(2px)' }} />
-            16〜26歳の女性
+            14〜26歳の女性
           </div>
           <div className='text-sm'>　　※未成年者は親権者の同意が必要</div>
           <div className='flex'>
@@ -257,6 +265,37 @@ const EntryMethod = () => {
       <div className='flex flex-col gap-6'>
         <Heading tag={4} label='応募方法' />
         <EntryLine />
+      </div>
+    </Panel>
+  )
+}
+
+const Costume = () => {
+  return (
+    <Panel size='xl'>
+      <div className='flex flex-col gap-6'>
+        <Heading tag={4} label='衣装デザイン' />
+        <div className='flex flex-col gap-4'>
+          <Image src={costume.src} alt='衣装' />
+          <div className='flex flex-col gap-2'>
+            <Heading tag={5} label='衣装製作者さんのご紹介' />
+            <div className='pl-4 flex flex-col gap-4'>
+              <p className='text-lg font-bold'>yuumi mano さん</p>
+              <div className='flex gap-3'>
+                <Link href='https://x.com/m_noooom_/' className='w-12'>
+                  <Image src={xLogo.src} alt='x' />
+                </Link>
+                <Link href='https://www.instagram.com/y___i____/' className='w-12'>
+                  <Image src={instaLogo.src} alt='instagram' />
+                </Link>
+              </div>
+
+              <div className=''>
+                多数の人気なアイドルグループの衣装を製作しており、実績のある方にご依頼させていただきました。
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </Panel>
   )
