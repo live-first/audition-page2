@@ -109,7 +109,7 @@ const DeadLine = () => {
     <Panel size='xl'>
       <Heading tag={4} label='募集締切' />
       <div className='flex flex-col justify-center gap-2'>
-        <EmphasisSlash>2025 / 10 / 31（金）</EmphasisSlash>
+        <EmphasisSlash>2025 / 11 / 11（火）</EmphasisSlash>
       </div>
     </Panel>
   )
