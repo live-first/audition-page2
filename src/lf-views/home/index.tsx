@@ -10,11 +10,21 @@ import { PropsWithChildren } from 'react'
 import SlideUpAnimation from '@/lf-components/animation/slideUpAnimation'
 import { Marker } from '@/lf-components/Marker'
 import './style.css'
-import { Image } from '@/lf-components/Image'
+import { Img } from '@/lf-components/Image'
 import costume from '../../image/costume.jpeg'
 import xLogo from '../../image/x-logo.png'
 import instaLogo from '../../image/Instagram-logo.png'
 import Link from 'next/link'
+import { LetterPanel } from '@/lf-templates/letterPanel'
+import matsuri from '@/image/咲真まつり.png'
+import hikaru from '@/image/佐藤ひかる.png'
+import mio from '@/image/橘みお.png'
+import koko from '@/image/櫻葉ここ.png'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, Navigation, Pagination } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 export const HomeView = () => {
   return (
@@ -43,7 +53,7 @@ export const HomeView = () => {
               <Costume />
             </SlideUpAnimation>
             <SlideUpAnimation>
-              <Music />
+              <Member />
             </SlideUpAnimation>
             <SlideUpAnimation>
               <EntryMethod />
@@ -106,12 +116,13 @@ const EntryLine = () => {
 
 const DeadLine = () => {
   return (
-    <Panel size='xl'>
-      <Heading tag={4} label='募集締切' />
+    <LetterPanel title='募集締切'>
       <div className='flex flex-col justify-center gap-2'>
-        <EmphasisSlash>2025 / 11 / 11（火）</EmphasisSlash>
+        <EmphasisSlash>
+          <span className='font-bold'>2026 / 3 / 8（日）</span>
+        </EmphasisSlash>
       </div>
-    </Panel>
+    </LetterPanel>
   )
 }
 
@@ -126,9 +137,8 @@ const AuditionOutline = () => {
   }
 
   return (
-    <Panel size='xl'>
+    <LetterPanel title='募集内容'>
       <div className='flex flex-col gap-6'>
-        <Heading tag={4} label='募集内容' />
         <Section label='🎵グループについて'>
           <div>
             <Marker theme='blue'>王道 × 清楚系</Marker>
@@ -169,15 +179,14 @@ const AuditionOutline = () => {
           <div>レッスン、衣装など活動にかかる費用の負担はありません。</div>
         </Section>
       </div>
-    </Panel>
+    </LetterPanel>
   )
 }
 
 const Eligibility = () => {
   return (
-    <Panel size='xl'>
+    <LetterPanel title='応募資格'>
       <div className='flex flex-col gap-6'>
-        <Heading tag={4} label='応募資格' />
         <div>
           <div className='flex'>
             <IoMdCheckmark style={{ transform: 'translateY(2px)' }} />
@@ -206,15 +215,14 @@ const Eligibility = () => {
           </div>
         </div>
       </div>
-    </Panel>
+    </LetterPanel>
   )
 }
 
 const Schedule = () => {
   return (
-    <Panel size='xl'>
+    <LetterPanel title='オーディションスケジュール'>
       <div className='flex flex-col gap-6'>
-        <Heading tag={4} label='オーディションスケジュール' />
         <div>
           <div className='font-bold text-default'>1次審査：書類審査</div>
           <div className='text-sm pl-4'>公式ラインに必要事項をお送りください。</div>
@@ -233,15 +241,75 @@ const Schedule = () => {
           <div className='text-sm pl-4'>2次面接時にご案内いたします。</div>
         </div>
       </div>
-    </Panel>
+    </LetterPanel>
+  )
+}
+
+const Member = () => {
+  return (
+    <LetterPanel title='メンバー紹介'>
+      <div className='flex w-full'>
+        <Swiper
+          modules={[Autoplay, Navigation, Pagination]}
+          pagination={{ clickable: false, el: '#pagination' }}
+          mousewheel={true}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          speed={500}
+          centeredSlides={true}
+          loop={true}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 30,
+            },
+            500: {
+              slidesPerView: 1.8,
+              spaceBetween: 30,
+            },
+            992: {
+              slidesPerView: 2.2,
+              spaceBetween: 30,
+            },
+            1600: {
+              slidesPerView: 3.3,
+              spaceBetween: 30,
+            },
+            1800: {
+              slidesPerView: 4.3,
+              spaceBetween: 30,
+            },
+          }}
+        >
+          <SwiperSlide>
+            <Link href='/member#佐藤ひかる'>
+              <Img src={hikaru.src} alt='佐藤ひかる' />
+            </Link>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Link href='/member#櫻葉ここ'>
+              <Img src={koko.src} alt='櫻葉ここ' />
+            </Link>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Link href='/member#橘みお'>
+              <Img src={mio.src} alt='橘みお' />
+            </Link>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Link href='/member#咲真まつり'>
+              <Img src={matsuri.src} alt='咲真まつり' />
+            </Link>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+    </LetterPanel>
   )
 }
 
 const Music = () => {
   return (
-    <Panel size='xl'>
+    <LetterPanel title='楽曲紹介'>
       <div className='flex flex-col gap-6'>
-        <Heading tag={4} label='楽曲紹介' />
         <div className='flex flex-col gap-4 items-center'>
           <audio
             src='https://audition.live-first.info/static/music/distiny_sample.mp3'
@@ -255,18 +323,17 @@ const Music = () => {
           ></audio>
         </div>
       </div>
-    </Panel>
+    </LetterPanel>
   )
 }
 
 const EntryMethod = () => {
   return (
-    <Panel size='xl'>
+    <LetterPanel title='応募方法'>
       <div className='flex flex-col gap-6'>
-        <Heading tag={4} label='応募方法' />
         <EntryLine />
       </div>
-    </Panel>
+    </LetterPanel>
   )
 }
 
@@ -276,17 +343,17 @@ const Costume = () => {
       <div className='flex flex-col gap-6'>
         <Heading tag={4} label='衣装デザイン' />
         <div className='flex flex-col gap-4'>
-          <Image src={costume.src} alt='衣装' />
+          <Img src={costume.src} alt='衣装' />
           <div className='flex flex-col gap-2'>
             <Heading tag={5} label='衣装製作者さんのご紹介' />
             <div className='pl-4 flex flex-col gap-4'>
               <p className='text-lg font-bold'>yuumi mano さん</p>
               <div className='flex gap-3'>
                 <Link href='https://x.com/m_noooom_/' className='w-12'>
-                  <Image src={xLogo.src} alt='x' />
+                  <Img src={xLogo.src} alt='x' />
                 </Link>
                 <Link href='https://www.instagram.com/y___i____/' className='w-12'>
-                  <Image src={instaLogo.src} alt='instagram' />
+                  <Img src={instaLogo.src} alt='instagram' />
                 </Link>
               </div>
 

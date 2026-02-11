@@ -8,7 +8,11 @@ type PanelProps = {
 }
 
 export const Panel = (props: PropsWithChildren<PanelProps>) => {
-  const { size = 'md', className, children } = props
+  const { size, className, children } = props
 
-  return <div className={cn('flex flex-col panel bg-background', `panel-${size}`, className)}>{children}</div>
+  return (
+    <div className={cn('flex flex-col panel bg-background', size && `panel-${size}`, className)}>
+      {children}
+    </div>
+  )
 }
