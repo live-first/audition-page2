@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'アイドルオーディション',
-  description: '新規女性アイドルグループ メンバーオーディションのサイトです。',
+  description: '白地図プロローグ メンバーオーディションのサイトです。',
 }
 
 export default function RootLayout({
